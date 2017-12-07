@@ -9,6 +9,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <locale.h>
 
 
@@ -18,7 +19,6 @@
  /* Функция быстрого ускорения через цикл */
 __int64 QuickPowCircle(__int64 a, __int64 b)
 {
-
   __int64 n  = 1;
 
   while (b)

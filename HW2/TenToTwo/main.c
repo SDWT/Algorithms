@@ -6,6 +6,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <locale.h>
 
 
@@ -38,7 +39,7 @@ int main()
 void RecTo2From10(int number)
 {
     if (number <= 0)
-        return 0;
+        return;
     RecTo2From10(number / 2);
     printf("%d", number % 2);
 }
@@ -48,7 +49,7 @@ void To2From10(int number)
     if (number < 0)
     {
         printf("Число меньше нуля.\n");
-        return 0;
+        return;
     }
     else if (number == 0)
     {
