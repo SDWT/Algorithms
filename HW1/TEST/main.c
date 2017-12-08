@@ -26,9 +26,15 @@ void Swap3(int *x, int *y)
 
 int main()
 {
-    setlocale(LC_ALL, "Russian");
-    int x = 10, y = 30;
+    int x = 10, y = 30, i, j;
     int *p, *c;
+    
+    char str[] = "M          M          M          M          M   00     M          M" \
+        "M          M          M          M          M]\\V\\\\1\\]0 M          M" \
+        "M    `e    M    _e    M    eg    M    gg    MV\\~\\\\\\~\\\\VM    hg    M\n";
+    
+    setlocale(LC_ALL, "Russian");
+    /*
     p = &x;
     c = &y;
     wprintf(L"Выводим  x = %d y=%d \n", x, y);
@@ -37,6 +43,23 @@ int main()
     wprintf(L"Выводим  значение p = %d c = %d \n", x, y);
     wprintf(L"Выводим  ссылку x = %p y = %p \n", &x, &y);
     wprintf(L"Выводим  ссылку p = %p c = %p \n", &p, &c);
+    */
+    /*printf("123 ");*/
+    for (j = 0; j <= 47; j++)
+    {
+        for (i = 0; i < strlen(str); i++)
+            /*if (str[i] == 77)
+                printf("%c", '\n');
+            else*/
+            printf("%c", j + str[i]);
+        printf("\n\n\n");
+    }
+    /*
+    printf("%d ", '\n');
+    printf("%d ", '\r');
+    */
+
+    /*printf("%c", 'a' + 13);*/
     getchar();
     return 0;
 }
