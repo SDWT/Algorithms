@@ -61,7 +61,7 @@ int main()
     return 0;
 }
 
-void TestBinSearch()
+void TestBinSearch(void)
 {
     int i, id, elem1 = 357, elem2 = 3435, n = 10;
 
@@ -102,7 +102,13 @@ void TestBinSearch()
     printf("Ёлемент - %d, номер в массиве - %d, элемент в массиве - %d\n", elem2, id, mas[id]);
 }
 
-void TestSort()
+void TestSortPrint(int cnt, char *name, double timeS)
+{
+
+    printf("|  %7d  |  %11s  |  %02d:%02d:%02d.%03d  |\n", cnt, name, (int)(timeS / 3600), ((int)timeS % 3600) / 60, ((int)timeS % 60), (int)(timeS * 1000) % 1000);
+}
+
+void TestSort(void)
 {
     int i, cntMin, cntMax, dx;
 
@@ -132,13 +138,25 @@ void TestSort()
 
     for (i = cntMin; i <= cntMax; i += dx)
     {
-        printf("\n\n     N     |      Name     |    cnt    |\n");
+        printf("|     N     |      Name     |  hh:mm:ss.ms   |\n");
+
+        TestSortPrint(i, "Bubble     ", StartSort(mas, i, BubbleSort) / (double)CLOCKS_PER_SEC);
+        TestSortPrint(i, "Fast Bubble", StartSort(mas, i, FastBubbleSort) / (double)CLOCKS_PER_SEC);
+        TestSortPrint(i, "Shacker    ", StartSort(mas, i, ShackerSort) / (double)CLOCKS_PER_SEC);
+        TestSortPrint(i, "Selection  ", StartSort(mas, i, SelectionSort) / (double)CLOCKS_PER_SEC);
+        TestSortPrint(i, "Insertion  ", StartSort(mas, i, InsertionSort) / (double)CLOCKS_PER_SEC);
+        TestSortPrint(i, "BSInsertion", StartSort(mas, i, BinSearchInsertionSort) / (double)CLOCKS_PER_SEC);
+
         /*printf("%10d |      Name      | %9d |\n", i, );*/
-        printf("%10d |  Bubble       | %9lf |\n", i, StartSort(mas, i, BubbleSort) / (double)CLOCKS_PER_SEC);
-        printf("%10d |  Fast Bubble  | %9lf |\n", i, StartSort(mas, i, FastBubbleSort) / (double)CLOCKS_PER_SEC);
-        printf("%10d |  Shacker      | %9lf |\n", i, StartSort(mas, i, ShackerSort) / (double)CLOCKS_PER_SEC);
-        printf("%10d |  Selection    | %9lf |\n", i, StartSort(mas, i, SelectionSort) / (double)CLOCKS_PER_SEC);
-        printf("%10d |  Insertion    | %9lf |\n", i, StartSort(mas, i, InsertionSort) / (double)CLOCKS_PER_SEC);
-        printf("%10d |  BSInsertion  | %9lf |\n", i, StartSort(mas, i, BinSearchInsertionSort) / (double)CLOCKS_PER_SEC);
+        /*
+        printf("|  %7d  |  Bubble       | %9lf |\n", i, StartSort(mas, i, BubbleSort) / (double)CLOCKS_PER_SEC);
+        printf("|  %7d  |  Fast Bubble  | %9lf |\n", i, StartSort(mas, i, FastBubbleSort) / (double)CLOCKS_PER_SEC);
+        printf("|  %7d  |  Shacker      | %9lf |\n", i, StartSort(mas, i, ShackerSort) / (double)CLOCKS_PER_SEC);
+        printf("|  %7d  |  Selection    | %9lf |\n", i, StartSort(mas, i, SelectionSort) / (double)CLOCKS_PER_SEC);
+        printf("|  %7d  |  Insertion    | %9lf |\n", i, StartSort(mas, i, InsertionSort) / (double)CLOCKS_PER_SEC);
+        printf("|  %7d  |  BSInsertion  | %9lf |\n", i, StartSort(mas, i, BinSearchInsertionSort) / (double)CLOCKS_PER_SEC);
+        */
+        printf("|___________|_______________|________________|\n");
     }
 }
+
