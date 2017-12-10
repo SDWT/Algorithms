@@ -3,9 +3,22 @@
 
 int cnt;
 
-int BinSearch(int *a, int N)
+int BinSearch(int *a, int N, int elem)
 {
-    return 0;
+    int l = 0, r = N, m;
+
+    while (l + 1 < r)
+    {
+        m = (l + r) / 2;
+        if (a[m] == elem)
+            return m;
+        else if (a[m] < elem)
+            l = m;
+        else
+            r = m;
+    }
+
+    return l;
 }
 
 long StartSort(int *mas, int N, int(*Sort)(int *, int))
@@ -155,7 +168,7 @@ int BinSearchInsertionSort(int *a, int N)
 
 int Sort(int *a, int N)
 {
-    int i, j;
+    //int i, j;
 
     return cnt;
 }

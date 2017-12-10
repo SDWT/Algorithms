@@ -4,9 +4,12 @@
 #include <stdlib.h>
 #include <math.h>
 #include <time.h>
+#include <conio.h>
 #include <locale.h>
 
 int StartSort(int *mas, int N, int(*Sort)(int *, int));
+
+int BinSearch(int *a, int N, int elem);
 
 /**/
 void Swap(int *x, int *y);
