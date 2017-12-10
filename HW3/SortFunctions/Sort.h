@@ -7,11 +7,16 @@
 #include <conio.h>
 #include <locale.h>
 
-int StartSort(int *mas, int N, int(*Sort)(int *, int));
-
+/*Левый Бинарный поиск*/
 int BinSearch(int *a, int N, int elem);
 
-/**/
+/*Правый Бинарный поиск*/
+int BinSearchRight(int *a, int N, int elem);
+
+/*Функция запуска сортировки с проверкой*/
+long StartSort(int *mas, int N, int(*Sort)(int *, int));
+
+/*обмен значений*/
 void Swap(int *x, int *y);
 
 /*Пузырьковая сортировка (Bubble) O(N^2)*/

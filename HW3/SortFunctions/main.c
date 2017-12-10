@@ -14,7 +14,6 @@
 
 #define _CRT_SECURE_NO_WARNINGS
 
-
 #include "Sort.h"
 
 #define TRUE_MY 1
@@ -31,14 +30,13 @@ int main()
     int flag = 1;
 
     setlocale(LC_ALL, "Russian");
-
+    printf("Третье домашнее задание.\n");
     do
     {
-        printf("Третье домашнеезадание.\n"\
-            "Нажмите для запуска:\n"\
+        printf("Нажмите для запуска:\n"\
             "0 - выход;\n"\
             "1 - тест сортировок;\n"\
-            "2 - тест бинарного (двоичного) поиска;\n");
+            "2 - тест бинарного (двоичного) поиска.\n");
         switch (_getch())
         {
         case '0':
@@ -51,7 +49,8 @@ int main()
             TestBinSearch();
             break;
         case '3':
-            flag = 0;
+            /*StartSort(mas, 10, BinSearchInsertionSort);*/
+
             break;
         default:
             break;
@@ -140,6 +139,6 @@ void TestSort()
         printf("%10d |  Shacker      | %9lf |\n", i, StartSort(mas, i, ShackerSort) / (double)CLOCKS_PER_SEC);
         printf("%10d |  Selection    | %9lf |\n", i, StartSort(mas, i, SelectionSort) / (double)CLOCKS_PER_SEC);
         printf("%10d |  Insertion    | %9lf |\n", i, StartSort(mas, i, InsertionSort) / (double)CLOCKS_PER_SEC);
-        /*printf("%10d |  BSInsertion  | %9d |\n", i, StartSort(mas, i, BinSearchInsertionSort));*/
+        printf("%10d |  BSInsertion  | %9lf |\n", i, StartSort(mas, i, BinSearchInsertionSort) / (double)CLOCKS_PER_SEC);
     }
 }
