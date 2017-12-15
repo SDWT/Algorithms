@@ -21,10 +21,18 @@ int MaxSubSequence(char *s1, char *s2);
 int main()
 {
     //int m, n;
+    char str1[1000], str2[1000];
+
 
     setlocale(LC_ALL, "Russian");
 
-    printf("Длина максимальной последовательности: %d\n", MaxSubSequence("load", "mcdonalds"));
+    printf("Введите строку 1:\n");
+    scanf("%s", str1);
+    printf("Введите строку 2:\n");
+    scanf("%s", str2);
+    printf("Длина максимальной последовательности: %d\n", MaxSubSequence(str1, str2));
+
+    /*printf("Длина максимальной последовательности: %d\n", MaxSubSequence("load", "mcdonalds"));*/
 
     /*system("pause");*/
     return 0;
