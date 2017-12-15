@@ -14,11 +14,11 @@
 
 
 #define TRUE_MY 1
-#define FALSE_MY 1
+#define FALSE_MY 0
 
 int HorseStep(int N, int M, int i, int j, int di, int dj);
 int HorseStart(int n, int m);
-int HorseRec(int *a, int n, int m, int level);
+int HorseRec(int *a, int n, int m, int i, int j, int level);
 
 int main()
 {
@@ -26,14 +26,18 @@ int main()
 
     setlocale(LC_ALL, "Russian");
 
-    printf("Enter width and hight:\n");
-    //scanf("%d%d", &n, &m);
-
+    printf("Введите длину и высоту:\n");
+    scanf("%d%d", &n, &m);
+    
+    /*
     printf("| %4cN%4c | %4cM%4c | %9c |\n", ' ', ' ', ' ', ' ', ' ');
 
     for (n = 1; n < 6; n++)
         for (m = 1; m < 6; m++)
             printf("| %9d | %9d | %9d |\n", n, m, HorseStart(n, m));
+    */
+    printf("Количество путей конём на доске %dx%d: %d\n", n, m, HorseStart(n, m));
+    
     system("pause");
     return 0;
 }
@@ -72,7 +76,8 @@ int HorseRec(int *a, int n, int m, int i, int j, int level)
     { -1, 2 },
     { 1, 2 }
     };
-    int cnt = 0, k, x, y;
+    int cnt = 0, k;
+    /*int x, y;*/
     
 
     if (level >  n * m)
@@ -99,8 +104,8 @@ int HorseRec(int *a, int n, int m, int i, int j, int level)
 int HorseStep(int N, int M, int i, int j, int di, int dj)
 {
     if (i + di < 0 || i + di >= N || j + dj < 0 || j + dj >= M)
-        return 0;
-    return 1;
+        return FALSE_MY;
+    return TRUE_MY;
 }
 
 

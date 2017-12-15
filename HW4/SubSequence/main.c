@@ -24,7 +24,7 @@ int main()
 
     setlocale(LC_ALL, "Russian");
 
-    printf("%d", MaxSubSequence("load", "mcdonalds"));
+    printf("Длина максимальной последовательности: %d\n", MaxSubSequence("load", "mcdonalds"));
 
     /*system("pause");*/
     return 0;
@@ -32,11 +32,9 @@ int main()
 
 int MaxSubSequence(char *s1, char *s2)
 {
-    int i, j, ls1 = strlen(s1), ls2 = strlen(s2), x, y;
+    int i, j, ls1 = strlen(s1) + 1, ls2 = strlen(s2) + 1;
     int *matr;
-
-    ls1++;
-    ls2++;
+    /*int x, y;*/
 
     if ((matr = calloc(ls1 * ls2, sizeof(int))) == NULL)
         return -1;
@@ -51,7 +49,7 @@ int MaxSubSequence(char *s1, char *s2)
             if (s1[i - 1] == s2[j - 1])
                 matr[j + i * ls2] += 1;
         }
-        /* Debu
+        /*
         printf("  ");
         for (y = 1; y < ls2; y++)
         {

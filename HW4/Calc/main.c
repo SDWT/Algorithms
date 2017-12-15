@@ -13,12 +13,6 @@
 #include <stdlib.h>
 #include <locale.h>
 
-
-#define TRUE_MY 1
-#define FALSE_MY 1
-
-
-
 int CalcRec(int cur, int first)
 {
     /*int x = 0;*/
