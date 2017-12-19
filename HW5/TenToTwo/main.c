@@ -1,4 +1,4 @@
-/* Реализовать перевод из 10 в 2 систему счисления с использованием стека.
+/* 1. Реализовать перевод из 10 в 2 систему счисления с использованием стека.
  *
  * Samsonov Dmitriy
  */
@@ -13,8 +13,7 @@
 
 int main()
 {
-    int flag = 1;
-    char str[1002];
+    int flag = 1, x;
     setlocale(LC_ALL, "Russian");
 
 
@@ -22,7 +21,7 @@ int main()
     {
         printf("Menu:\n" \
             "0 - exit;\n" \
-            "1 - show stack and queue;\n" \
+            "1 - From ten number to two number.\n" \
             "\n");
         switch (_getch())
         {
@@ -30,6 +29,9 @@ int main()
             flag = 0;
             break;
         case '1':
+            printf("Enter number:\n");
+            scanf("%d", &x);
+            printf("%d\n\n", TenToTwo(x));
             break;
         default:
             break;
@@ -40,3 +42,20 @@ int main()
     return 0;
 }
 
+int TenToTwo(int number)
+{
+    int i;
+    STACK S;
+    S.Top = NULL;
+
+    while (number > 0)
+    {
+        if (!Push(&S, number % 2))
+            return 0;
+        number >>= 1;
+    }
+
+    while (Pop(&S, &i))
+        number = number * 10 + i;
+    return number;
+}

@@ -14,7 +14,7 @@ void DisplayList( LIST *L )
     }
 }
 
-int Pop( STACK *S, char *OldData )
+int Pop( STACK *S, int *OldData )
 {
   LIST *OldElement;
 
@@ -33,7 +33,7 @@ int Pop( STACK *S, char *OldData )
 }
 
 
-int Push( STACK *S, char NewData )
+int Push( STACK *S, int NewData )
 {
   LIST *NewElement;
 
