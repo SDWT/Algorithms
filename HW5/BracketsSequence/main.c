@@ -27,7 +27,7 @@ int main()
     {
         printf("Menu:\n" \
             "0 - exit;\n" \
-            "1 - show stack and queue;\n" \
+            "1 - check bracket sequence;\n" \
             "\n");
         switch (_getch())
         {
