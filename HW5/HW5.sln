@@ -9,6 +9,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BracketsSequence", "Bracket
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TenToTwo", "TenToTwo\TenToTwo.vcxproj", "{B844ED67-D654-4521-AD87-AB41E204B59E}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Deq", "Deq\Deq.vcxproj", "{3B184EA0-F0C2-42A1-B9C4-034B057FF714}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -41,6 +43,14 @@ Global
 		{B844ED67-D654-4521-AD87-AB41E204B59E}.Release|x64.Build.0 = Release|x64
 		{B844ED67-D654-4521-AD87-AB41E204B59E}.Release|x86.ActiveCfg = Release|Win32
 		{B844ED67-D654-4521-AD87-AB41E204B59E}.Release|x86.Build.0 = Release|Win32
+		{3B184EA0-F0C2-42A1-B9C4-034B057FF714}.Debug|x64.ActiveCfg = Debug|x64
+		{3B184EA0-F0C2-42A1-B9C4-034B057FF714}.Debug|x64.Build.0 = Debug|x64
+		{3B184EA0-F0C2-42A1-B9C4-034B057FF714}.Debug|x86.ActiveCfg = Debug|Win32
+		{3B184EA0-F0C2-42A1-B9C4-034B057FF714}.Debug|x86.Build.0 = Debug|Win32
+		{3B184EA0-F0C2-42A1-B9C4-034B057FF714}.Release|x64.ActiveCfg = Release|x64
+		{3B184EA0-F0C2-42A1-B9C4-034B057FF714}.Release|x64.Build.0 = Release|x64
+		{3B184EA0-F0C2-42A1-B9C4-034B057FF714}.Release|x86.ActiveCfg = Release|Win32
+		{3B184EA0-F0C2-42A1-B9C4-034B057FF714}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
