@@ -17,10 +17,11 @@
 #define FALSE_MY 1
 
 
-int mas[1000005];
+int mas[10000005];
 
-void TestBinSearch();
-void TestSort();
+void TestHardSort(void);
+void TestBinSearch(void);
+void TestSort(void);
 
 int main()
 {
@@ -101,22 +102,22 @@ void TestBinSearch(void)
 void TestSortPrint(int cnt, char *name, double timeS)
 {
 
-    printf("|  %7d  |  %11s  |  %02d:%02d:%02d.%03d  |\n", cnt, name, (int)(timeS / 3600), ((int)timeS % 3600) / 60, ((int)timeS % 60), (int)(timeS * 1000) % 1000);
+    printf("| %8d  |  %11s  |  %02d:%02d:%02d.%03d  |\n", cnt, name, (int)(timeS / 3600), ((int)timeS % 3600) / 60, ((int)timeS % 60), (int)(timeS * 1000) % 1000);
 }
 
 void TestHardSort(void)
 {
     int i;
-    int a[] = {100, 10000, 1000000};
+    int a[] = {100, 10000, 1000000, 10000000};
 
 
-    for (i = 0; i < 3; i++)
+    for (i = 0; i < 4; i++)
     {
         printf("|     N     |      Name     |  hh:mm:ss.ms   |\n");
-        TestSortPrint(i, "Counting   ", StartHardSort(mas, a[i], CountingSort) / (double)CLOCKS_PER_SEC);
-        TestSortPrint(i, "Quick      ", StartHardSort(mas, a[i], CountingSort) / (double)CLOCKS_PER_SEC);
-        TestSortPrint(i, "Merge      ", StartHardSort(mas, a[i], CountingSort) / (double)CLOCKS_PER_SEC);
-        TestSortPrint(i, "ListConting", StartHardSort(mas, a[i], CountingSort) / (double)CLOCKS_PER_SEC);
+        TestSortPrint(a[i], "Counting   ", StartHardSort(mas, a[i], CountingSort) / (double)CLOCKS_PER_SEC);
+        TestSortPrint(a[i], "Quick      ", StartHardSort(mas, a[i], QuickSort) / (double)CLOCKS_PER_SEC);
+        TestSortPrint(a[i], "Merge      ", StartHardSort(mas, a[i], MergeSort) / (double)CLOCKS_PER_SEC);
+        //TestSortPrint(i, "ListConting", StartHardSort(mas, a[i], CountingSort) / (double)CLOCKS_PER_SEC);
 
 
         /*TestSortPrint(i, "Bubble     ", StartSort(mas, a[i], BubbleSort) / (double)CLOCKS_PER_SEC);            */

@@ -45,3 +45,11 @@ long StartHardSort(int *mas, int N, int(*Sort)(int *, int));
 /*Сортировка подсчётом*/
 int CountingSort(int *a, int N);
 
+/*Быстрая сортировка*/
+int QuickSort(int *a, int N);
+
+/*Сортировка слиянием*/
+int MergeSort(int *a, int N);
+
+/*алгоритм сортировки со списком*/
+

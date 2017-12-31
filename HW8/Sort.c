@@ -86,8 +86,8 @@ long StartHardSort(int *mas, int N, int(*Sort)(int *, int))
     k = Sort(mas, N);
     endTime = clock();
     /*
-    for (i = 0; i < 10; i++)
-    printf("%d ", mas[i]);
+    for (i = 0; i < N; i++)
+        printf("%d ", mas[i]);
     printf("\n\n");
     */
     return endTime - startTime;
@@ -237,6 +237,9 @@ int CountingSort(int *a, int N)
     int i, j;
     int count[1000] = { 0 };
 
+    if (N >= 1000)
+        return -1;
+
     for (i = 0; i < N; i++)
     {
         count[a[i]]++;
@@ -245,7 +248,7 @@ int CountingSort(int *a, int N)
     j = 0;
     for (i = 0; i < 1000; i++)
     {
-        while (count[i] > 0)
+        while (count[i]-- > 0 && j < N)
         {
             a[j] = i;
             j++;
@@ -282,8 +285,90 @@ int CountingSort2(int *a, int N, int minEl, int maxEl)
 }
 
 /*Быстрая сортировка*/
+void MYqsort(int *a, int b, int e)
+{
+    int l = b, r = e, tmp;
+    int chosenElement = a[(l + r) / 2];
+
+    while (l <= r)
+    {
+        while (a[l] < chosenElement)
+            l++;
+        while (a[r] > chosenElement)
+            r--;
+        if (l <= r)
+        {
+            tmp = a[l];
+            a[l] = a[r];
+            a[r] = tmp;
+            l++, r--;
+        }
+    }
+    if (b < r)
+        MYqsort(a, b, r);
+    if (e > l)
+        MYqsort(a, l, e);
+}
+
+int QuickSort(int *a, int N)
+{
+    MYqsort(a, 0, N - 1);
+    return 0;
+}
 
 /*Сортировка слиянием*/
+void Merge(int *a, int l, int r)
+{
+    int i = l, j = (l + r) / 2 + 1, k;
+    int *buf = malloc(((r + l) / 2 - l + 1) * sizeof(int));
+
+    for (i = l; i < j; i++)
+    {
+        buf[i - l] = a[i];
+    }
+
+    i = l;
+
+    for (k = l; k <= r && j <= r && i <= (l + r) / 2; k++)
+    {
+        if (buf[i - l] < a[j])
+        {
+            a[k] = buf[i - l];
+            i++;
+        }
+        else
+            a[k] = a[j++];
+    }
+
+    while (i <= (l + r) / 2)
+    {
+        a[k++] = buf[i++ - l];
+    }
+
+    while (j <= r)
+    {
+        a[k++] = a[j++];
+    }
+    free(buf);
+}
+
+void MY_MergeSort(int *a, int l, int r)
+{
+    int tmp;
+    
+    if (r <= l)
+        return;
+    MY_MergeSort(a, l, (l + r) / 2);
+    MY_MergeSort(a, (l + r) / 2 + 1, r);
+    Merge(a, l, r);
+}
+
+int MergeSort(int *a, int N)
+{
+    MY_MergeSort(a, 0, N - 1);
+    return 0;
+}
+
 
 /*алгоритм сортировки со списком*/
 
